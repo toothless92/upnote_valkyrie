@@ -1,0 +1,85 @@
+/* Ensure the parent container (e.g., .note-viewer) uses flexbox */
+.note-viewer {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevent parent scroll */
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 30%;
+  border-right: 1px solid #ddd;
+  padding: 1rem;
+  overflow-y: auto; /* Make sidebar scrollable */
+}
+
+/* Editor styles */
+.text-editor {
+  flex: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  overflow-y: auto; /* Make editor scrollable */
+  height: 50%;
+  max-height: 50%;
+  box-sizing: border-box;
+}
+
+.editor-header {
+  margin-bottom: 1rem;
+}
+
+.editor-textarea {
+  flex: 1; /* Make textarea take all available vertical space */
+  width: 100%;
+  font-family: monospace;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: none; /* Prevent manual resizing */
+  overflow-y: auto; /* Make textarea scrollable */
+  height: -webkit-fill-available;
+  
+}
+
+.save-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background-color: #45a049;
+}
+
+.no-selection {
+  padding: 1rem;
+  color: #999;
+  font-style: italic;
+}
+
+.html-viewer{
+  flex: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  overflow-y: auto; /* Make editor scrollable */
+  border: ridge;
+  height: 50%;
+  box-sizing: border-box;
+}
+
+.note-space {
+  overflow-y: auto; /* Editor scrollable */
+  padding: 1rem;
+  width: -webkit-fill-available;
+  height: 100%;
+  box-sizing: border-box;
+}

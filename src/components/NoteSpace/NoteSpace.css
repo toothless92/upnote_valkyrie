@@ -1,0 +1,36 @@
+/* Root container */
+.note-viewer {
+  display: grid;
+  grid-template-rows: auto 1fr; /* Header takes natural height, rest fills */
+  grid-template-columns: 1fr; /* Single column layout */
+  height: 100vh; /* Full viewport height */
+}
+
+/* Header */
+.header {
+  grid-row: 1; /* Header in the first row */
+  grid-column: 1; /* Spans the full width */
+  background-color: #4caf50;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Sidebar */
+.sidebar {
+  grid-row: 2;
+  grid-column:1;
+  overflow-y: auto; /* Sidebar scrollable */
+  border-right: 1px solid #ddd;
+  padding: 1rem;
+  background-color: #f4f4f4;
+
+}
+
+.note-space {
+  overflow-y: auto; /* Editor scrollable */
+  padding: 1rem;
+  width: -webkit-fill-available;
+  height: 100%;
+  box-sizing: border-box;
+}

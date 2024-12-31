@@ -1,11 +1,11 @@
-// NoteViewer.js
+// NoteSpace.js
 import React, { useState, useEffect } from "react";
-import "./NoteViewer.css";
+import "./NoteSpace.css";
 import { fetchData } from "../../utils/api.js";
 import { loginButton, logoutButton } from "../Login/logout.js";
-import { useAppContext } from "../Context/Context";
-import NoteList from "./NoteList";
-import NoteEditor from "./NoteEditor";
+import { useAppContext } from "../Context/Context.js";
+import NoteList from "./NoteList.js";
+import NoteEditor from "./NoteEditor.js";
 
 const NoteViewer = () => {
   const { token, setToken, notes, setNotes, selectedNote, setSelectedNote } =
@@ -21,19 +21,23 @@ const NoteViewer = () => {
         .then((data) => {
           // debugger;
 
-          const notesData = data.dataByNamespace.notes[0].values.map(
-            (note) => ({
-              id: note[0],
-              html: note[1],
-              plainText: note[2],
-              contentHtml: note.html,
-              contentText: note.text,
-              updatedAt: note[11],
-              createdAt: note[12],
-              syncedAt: note[13],
-            })
+          const notesData = data.dataByNamespace.notes.flatMap(
+            (noteNamespace) =>
+              noteNamespace.values.map((noteValues) => {
+                return {
+                  id: noteValues[0], // Assuming index 0 is always the ID
+                  html: noteValues[1], // Assuming index 1 is always the HTML
+                  plainText: noteValues[2], // Assuming index 2 is always the plain text
+                  contentHtml: noteValues[3] || "", // Safe access for optional contentHtml
+                  contentText: noteValues[4] || "", // Safe access for optional contentText
+                  updatedAt: noteValues[11], // Updated at index 11
+                  createdAt: noteValues[12], // Created at index 12
+                  syncedAt: noteValues[13], // Synced at index 13
+                };
+              })
           );
-          // debugger;
+
+          debugger;
           setNotes(notesData);
           setLoading(false);
         })
@@ -68,7 +72,7 @@ const NoteViewer = () => {
     );
   // debugger;
   return (
-    <div className="layout">
+    <div className="note-viewer">
       <header className="header">
         <h1>UpNote Valkarie</h1>
         {logoutButton()}
@@ -76,9 +80,7 @@ const NoteViewer = () => {
       <aside className="sidebar">
         <NoteList />
       </aside>
-      <main className="editor">
-        <NoteEditor />
-      </main>
+      <NoteEditor />
     </div>
   );
 };

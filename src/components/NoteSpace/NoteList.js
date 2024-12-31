@@ -1,5 +1,6 @@
 import React from "react";
 import { useAppContext } from "../Context/Context";
+import "./NoteList.css"
 
 const NoteList = () => {
   const { token,
@@ -38,12 +39,11 @@ const NoteList = () => {
 
   return (
     <aside className="note-list">
-      <h3>Notes</h3>
       <ul>
         {notes.map((note) => (
           <li
             key={note.id} // Use a unique ID
-            className={selectedNote?.id === note.id ? "active" : ""}
+            className={selectedNote?.id === note.id ? "selected" : ""}
             onClick={() => setSelectedNote(note)}
           >
             {/* Render extracted HTML */}

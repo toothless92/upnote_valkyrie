@@ -7,17 +7,16 @@ import {
   Navigate,
 } from "react-router-dom";
 import Login from "./components/Login/Login.js";
-import NoteViewer from "./components/NoteViewer/NoteViewer";
+import NoteViewer from "./components/NoteSpace/NoteSpace.js";
 import { AppProvider, useAppContext } from "./components/Context/Context.js";
 
 const App = () => {
-  const { token, setToken, notes, setNotes, selectedNote, setSelectedNote } =
+  const { token, setToken} =
     useAppContext();
 
   useEffect(() => {
     const storedToken =
       localStorage.getItem("authToken") || sessionStorage.getItem("authToken");
-    // debugger;
     setToken(storedToken);
   }, []);
 

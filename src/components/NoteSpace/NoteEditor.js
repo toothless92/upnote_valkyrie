@@ -9,7 +9,7 @@ const NoteEditor = () => {
   // Update the editor content when the selected note changes
   useEffect(() => {
     if (selectedNote) {
-      setEditorContent(selectedNote.contentHtml); // Populate with HTML content
+      setEditorContent(selectedNote.html); // Populate with HTML content
     }
   }, [selectedNote]);
 
@@ -28,16 +28,23 @@ const NoteEditor = () => {
   }
 
   return (
-    <div className="text-editor">
-      <h2 className="editor-header">Editing: {selectedNote.title}</h2>
-      <textarea
-        value={editorContent}
-        onChange={handleContentChange}
-        className="editor-textarea"
-      />
-      <button onClick={saveContent} className="save-button">
-        Save
-      </button>
+    <div className="note-space">
+      <div className="text-editor">
+        <h2 className="editor-header">Editing: {selectedNote.title}</h2>
+        <textarea
+          value={editorContent}
+          onChange={handleContentChange}
+          className="editor-textarea"
+        />
+        <button onClick={saveContent} className="save-button">
+          Save
+        </button>
+      </div>
+      <div className="html-viewer"
+      dangerouslySetInnerHTML={{ __html: editorContent }}>
+
+      </div>
+
     </div>
   );
 };

@@ -1,0 +1,42 @@
+.note-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .note-list li {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+  }
+  
+  .note-list li:hover {
+    background-color: #b9e8fa;
+  }
+  
+  .note-list li.selected {
+    background-color: #a2d4ff; /* Highlight color for selected note */
+  }
+  
+  .note-title {
+    font-size: 1rem;
+  }
+  
+  .timestamp {
+    font-size: 0.8rem;
+    color: #888;
+    display: block;
+    margin-top: 0.2rem;
+  }
+  
+.note-preview{
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  vertical-align: top;
+  -webkit-line-clamp: 2;
+          line-clamp: 2;
+  -webkit-box-orient: vertical;
+  caret-color: transparent;
+}
