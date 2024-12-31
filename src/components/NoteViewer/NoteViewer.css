@@ -1,0 +1,16 @@
+.note-viewer {
+  display: flex;
+  height: 100vh; /* Full height layout */
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 30%;
+  border-right: 1px solid #ddd;
+  overflow-y: auto; /* Sidebar scrollable */
+}
+
+.editor {
+  flex: 1; /* Editor takes remaining space */
+  overflow-y: auto; /* Editor scrollable */
+}
