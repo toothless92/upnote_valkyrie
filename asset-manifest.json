@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/upnote_valkyrie/static/css/main.ca655dc6.css",
+    "main.js": "/upnote_valkyrie/static/js/main.9736f6e9.js",
+    "static/js/488.9c92ff38.chunk.js": "/upnote_valkyrie/static/js/488.9c92ff38.chunk.js",
+    "index.html": "/upnote_valkyrie/index.html",
+    "main.ca655dc6.css.map": "/upnote_valkyrie/static/css/main.ca655dc6.css.map",
+    "main.9736f6e9.js.map": "/upnote_valkyrie/static/js/main.9736f6e9.js.map",
+    "488.9c92ff38.chunk.js.map": "/upnote_valkyrie/static/js/488.9c92ff38.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ca655dc6.css",
+    "static/js/main.9736f6e9.js"
+  ]
+}
