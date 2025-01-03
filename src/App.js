@@ -7,7 +7,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Login from "./components/Login/Login.js";
-import NoteViewer from "./components/NoteSpace/NoteSpace.js";
+import AppViewer from "./components/AppSpace/AppSpace.js";
 import { AppProvider, useAppContext } from "./components/Context/Context.js";
 
 const App = () => {
@@ -32,7 +32,7 @@ const App = () => {
         {/* Private Route for NoteViewer */}
         <Route
           path="/notes"
-          element={token ? <NoteViewer /> : <Navigate to="/" />}
+          element={token ? <AppViewer /> : <Navigate to="/" />}
         />
       </Routes>
     </Router>

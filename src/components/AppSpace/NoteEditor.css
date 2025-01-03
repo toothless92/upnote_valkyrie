@@ -1,20 +1,16 @@
-/* Ensure the parent container (e.g., .note-viewer) uses flexbox */
 .note-viewer {
   display: flex;
-  height: 100vh; /* Full viewport height */
-  overflow: hidden; /* Prevent parent scroll */
+  flex-direction: column; /* Stack children vertically */
+  padding: 1rem;
+  border: 1px solid #ddd; /* Optional for debugging layout */
+  overflow-y: auto; /* Scrollable if content overflows */
+  height: auto; /* Adjust height as needed */
 }
 
-/* Sidebar styles */
-.sidebar {
-  width: 30%;
-  border-right: 1px solid #ddd;
-  padding: 1rem;
-  overflow-y: auto; /* Make sidebar scrollable */
-}
+
 
 /* Editor styles */
-.text-editor {
+.note-editor {
   flex: 1; /* Take remaining space */
   display: flex;
   flex-direction: column;
@@ -27,21 +23,7 @@
 
 .editor-header {
   margin-bottom: 1rem;
-}
-
-.editor-textarea {
-  flex: 1; /* Make textarea take all available vertical space */
-  width: 100%;
-  font-family: monospace;
-  font-size: 1rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  resize: none; /* Prevent manual resizing */
-  overflow-y: auto; /* Make textarea scrollable */
-  height: -webkit-fill-available;
-  
+  max-height:10%;
 }
 
 .save-button {
@@ -53,6 +35,8 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  box-sizing: border-box;
+  max-height:10%;
 }
 
 .save-button:hover {
@@ -82,4 +66,37 @@
   width: -webkit-fill-available;
   height: 100%;
   box-sizing: border-box;
+}
+
+.ql-toolbar {
+  max-height: -webkit-fill-content;
+}
+
+.ql-editor {
+  overflow-y: scroll;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  max-height:100%;
+}
+
+.ql-container {
+  box-sizing: border-box;
+  max-height: 90%;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.quill{
+  max-height: -WEBKIT-FILL-AVAILABLE;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  max-height:80%;
+}
+
+.note-info {
+  margin-bottom: 10px; /* Add spacing between elements */
+  width: 100%; /* Ensure full width */
 }

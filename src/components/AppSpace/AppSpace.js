@@ -1,13 +1,14 @@
 // NoteSpace.js
 import React, { useState, useEffect } from "react";
-import "./NoteSpace.css";
+import "./AppSpace.css";
 import { fetchData } from "../../utils/api.js";
 import { loginButton, logoutButton } from "../Login/logout.js";
 import { useAppContext } from "../Context/Context.js";
 import NoteList from "./NoteList.js";
 import NoteEditor from "./NoteEditor.js";
+import { ResizableBox } from "react-resizable";
 
-const NoteViewer = () => {
+const AppViewer = () => {
   const { token, setToken, notes, setNotes, selectedNote, setSelectedNote } =
     useAppContext();
   // debugger;
@@ -30,14 +31,14 @@ const NoteViewer = () => {
                   plainText: noteValues[2], // Assuming index 2 is always the plain text
                   contentHtml: noteValues[3] || "", // Safe access for optional contentHtml
                   contentText: noteValues[4] || "", // Safe access for optional contentText
-                  updatedAt: noteValues[11], // Updated at index 11
-                  createdAt: noteValues[12], // Created at index 12
-                  syncedAt: noteValues[13], // Synced at index 13
+                  updatedAt: formatTimestamp(noteValues[11]), // Updated at index 11
+                  createdAt: formatTimestamp(noteValues[12]), // Created at index 12
+                  syncedAt: formatTimestamp(noteValues[13]), // Synced at index 13
                 };
               })
           );
 
-          debugger;
+          // debugger;
           setNotes(notesData);
           setLoading(false);
         })
@@ -72,17 +73,29 @@ const NoteViewer = () => {
     );
   // debugger;
   return (
-    <div className="note-viewer">
-      <header className="header">
-        <h1>UpNote Valkarie</h1>
-        {logoutButton()}
-      </header>
-      <aside className="sidebar">
-        <NoteList />
-      </aside>
-      <NoteEditor />
+    <div className="app-space">
+      <div className="sidebar">
+        <header className="header">
+          <h1>
+            UpNote<br></br>Valkarie
+          </h1>
+          <div>A mediocre web client for UpNote.</div>
+          {logoutButton()}
+        </header>
+      </div>
+        <div className="notes-list">
+          <NoteList />
+        </div>
+      <div className="note-space">
+        <NoteEditor />
+      </div>
     </div>
   );
 };
 
-export default NoteViewer;
+const formatTimestamp = (epoch) => {
+  const date = new Date(epoch); // Convert to Date object
+  return date.toLocaleString(); // Format as local readable string
+};
+
+export default AppViewer;

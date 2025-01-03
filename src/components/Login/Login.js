@@ -37,10 +37,16 @@ const Login = () => {
       <link rel="stylesheet" href="styles.css" />
       <h1>UpNote Valkyrie</h1>
       <h5 className="center">A mediocre UpNote client.</h5>
-      <div>UpNote Valkyrie is an open source and self-contained application.
-        Login info and user data are handled using
-        the same API as UpNote's official applications.
-        </div> 
+      <div>UpNote Valkyrie is an open source and self-contained web application to provide
+        web access for <a href="https://www.getupnote.com">getupnote.com</a>.<br></br>It is not
+        affiliated with UpNote, but login info and user data are handled using
+        UpNote's official API.
+        </div>
+        <br></br>
+        <div>
+        Help improve this project <a href="https://github.com/toothless92/upnote_valkyrie">on GitHub</a>.  Pull requests and issue tickets welcome.
+        </div>
+        <br></br>
       <form id="authForm" onSubmit={handleSubmit}>
         <label>Email:</label>
         <input
@@ -62,6 +68,7 @@ const Login = () => {
           required/>
 
         {/* <!-- Add the "Remember me" checkbox --> */}
+        <br></br><br></br>
         <div className="rememberLogin">
             <label
             for="rememberMe"
@@ -73,7 +80,7 @@ const Login = () => {
             onChange={(e) => setRememberMe(e.target.checked)}
             />
         </div>
-
+        <br></br>
         <button type="submit">Log In</button>
       </form>
       {error && <p className="error">{error}</p>}

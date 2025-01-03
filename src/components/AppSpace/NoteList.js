@@ -51,7 +51,7 @@ const NoteList = () => {
               className="note-preview"
               dangerouslySetInnerHTML={{ __html: extractFirstTwoLinesAsHtml(note.html) }}
             />
-            <span className="timestamp">{formatTimestamp(note.updatedAt)}</span>
+            <span className="timestamp">{note.updatedAt}</span>
           </li>
         ))}
       </ul>
@@ -59,9 +59,6 @@ const NoteList = () => {
   );
 };
 
-const formatTimestamp = (epoch) => {
-    const date = new Date(epoch); // Convert to Date object
-    return date.toLocaleString(); // Format as local readable string
-  };
+
 
 export default NoteList;
